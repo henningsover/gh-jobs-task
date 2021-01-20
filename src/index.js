@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import JobContextProvider from './contexts/JobContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <JobContextProvider>
+      <App />
+    </JobContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
