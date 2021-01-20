@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { JobContext } from '../../contexts/JobContextProvider';
 
-export default function JobSearchForm() {
-  const { handleSubmit, searchInputValue, setSearchInputValue } = useContext(JobContext);
+export default function JobSearchForm({ handleSubmit }) {
+  const { searchInputValue, setSearchInputValue } = useContext(JobContext);
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>

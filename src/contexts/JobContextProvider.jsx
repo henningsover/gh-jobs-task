@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export const JobContext = createContext({});
 
@@ -7,6 +8,7 @@ const BASE_URL = 'https://us-central1-wands-2017.cloudfunctions.net/githubjobs?d
 export default function JobContextProvider({ children }) {
   const [searchInputValue, setSearchInputValue] = useState('');
   const [jobList, setJobList] = useState(null);
+  const history = useHistory();
 
   const fetchJobs = (searchValue) => {
     const url = `${BASE_URL}${searchValue}`;
@@ -21,6 +23,11 @@ export default function JobContextProvider({ children }) {
     fetchJobs(transformedSearchValue);
   };
 
+  const submitAndLinkToSearchPage = (e) => {
+    handleSubmit(e);
+    history.push('/search');
+  };
+
   return (
     <JobContext.Provider
       value={{
@@ -29,6 +36,7 @@ export default function JobContextProvider({ children }) {
         handleSubmit,
         jobList,
         setJobList,
+        submitAndLinkToSearchPage,
       }}
     >
       {children}

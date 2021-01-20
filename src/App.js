@@ -1,14 +1,18 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import JobList from './components/JobList/';
 import JobSearchForm from './components/JobSearchForm/';
+import DetailsPage from './pages/DetailsPage';
+import SearchPage from './pages/SearchPage';
+import StartPage from './pages/StartPage/StartPage';
 
 function App() {
   return (
-    <div>
-      <h1>Halloj</h1>
-      <JobSearchForm />
-      <JobList />
-    </div>
+    <Switch>
+      <Route path="/search/:id" component={DetailsPage} />
+      <Route path="/search" component={SearchPage} />
+      <Route path="/" component={StartPage} />
+    </Switch>
   );
 }
 
