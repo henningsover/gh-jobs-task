@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 
 export default function DetailsPage() {
   return (

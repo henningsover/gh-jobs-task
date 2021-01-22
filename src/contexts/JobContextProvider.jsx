@@ -3,24 +3,32 @@ import { useHistory } from 'react-router-dom';
 
 export const JobContext = createContext({});
 
-const BASE_URL = 'https://us-central1-wands-2017.cloudfunctions.net/githubjobs?description=';
+const BASE_URL = 'https://us-central1-wands-2017.cloudfunctions.net/githubjobs?';
 
 export default function JobContextProvider({ children }) {
   const [searchInputValue, setSearchInputValue] = useState('');
   const [jobList, setJobList] = useState(null);
+  const [job, setJob] = useState(null);
   const history = useHistory();
 
-  const fetchJobs = (searchValue) => {
-    const url = `${BASE_URL}${searchValue}`;
+  const fetchJobList = (searchValue) => {
+    const url = `${BASE_URL}description=${searchValue}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setJobList(data));
   };
 
+  const fetchJob = (id) => {
+    const url = `${BASE_URL}id=${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const transformedSearchValue = searchInputValue.replace(/\s/g, '+');
-    fetchJobs(transformedSearchValue);
+    fetchJobList(transformedSearchValue);
   };
 
   const submitAndLinkToSearchPage = (e) => {
@@ -37,6 +45,8 @@ export default function JobContextProvider({ children }) {
         jobList,
         setJobList,
         submitAndLinkToSearchPage,
+        fetchJob,
+        job,
       }}
     >
       {children}

@@ -1,4 +1,7 @@
 import React from 'react';
+import ButtonStyledLink from '../ButtonStyledLink/ButtonStyledLink';
+import Logotype from '../Logotype/Logotype';
+import * as S from './styled';
 
 export default function JobItem({ job }) {
   const getDescription = (description) => {
@@ -6,11 +9,11 @@ export default function JobItem({ job }) {
   };
   return (
     <div>
-      <h2>{job.title}</h2>
+      <S.JobTitle>{job.title}</S.JobTitle>
       <strong>{job.type}</strong>
-      <a href={job.company_url}>Job page</a>
-      <p dangerouslySetInnerHTML={getDescription(job.description)} />
-      <img alt="Company logo" src={job.company_logo} />
+      <Logotype url={job.company_url} logoSrc={job.company_logo} />
+      <div dangerouslySetInnerHTML={getDescription(job.description)} />
+      <ButtonStyledLink linkKind={0} internalLink={`/search/${job.id}`} title="Read more" />
     </div>
   );
 }
