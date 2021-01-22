@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const InternalLinkWrapper = styled.div`
+  margin-top: 2em;
+  margin-left: auto;
+  display: inline-block;
   a {
     padding: 5px 10px;
     border-radius: 5px;

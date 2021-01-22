@@ -8,12 +8,16 @@ export default function JobItem({ job }) {
     return { __html: description };
   };
   return (
-    <div>
-      <S.JobTitle>{job.title}</S.JobTitle>
-      <strong>{job.type}</strong>
-      <Logotype url={job.company_url} logoSrc={job.company_logo} />
-      <div dangerouslySetInnerHTML={getDescription(job.description)} />
-      <ButtonStyledLink linkKind={0} internalLink={`/search/${job.id}`} title="Read more" />
-    </div>
+    <S.Wrapper>
+      <div style={{ flexGrow: 1 }}>
+        <S.JobTitle>{job.title}</S.JobTitle>
+        <strong>{job.type}</strong>
+        <S.DescriptionContainer dangerouslySetInnerHTML={getDescription(job.description)} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '1em' }}>
+        <Logotype url={job.company_url} logoSrc={job.company_logo} />
+        <ButtonStyledLink internalLink={`/search/${job.id}`} title="Read more" />
+      </div>
+    </S.Wrapper>
   );
 }
