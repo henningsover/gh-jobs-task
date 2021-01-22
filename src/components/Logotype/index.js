@@ -1,9 +1,3 @@
-import styled from 'styled-components';
+import Logotype from './Logotype';
 
-export const LogotypeContainer = styled.div`
-  max-width: 260px;
-`;
-
-export const Logo = styled.img`
-  max-width: 100%;
-`;
+export default Logotype;

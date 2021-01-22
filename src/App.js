@@ -1,10 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import JobList from './components/JobList/';
-import JobSearchForm from './components/JobSearchForm/';
 import DetailsPage from './pages/DetailsPage';
 import SearchPage from './pages/SearchPage';
-import StartPage from './pages/StartPage/StartPage';
+import StartPage from './pages/StartPage';
 
 function App() {
   return (

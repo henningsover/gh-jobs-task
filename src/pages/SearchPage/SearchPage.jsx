@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { JobContext } from '../../contexts/JobContextProvider';
 import JobList from '../../components/JobList';
 import JobSearchForm from '../../components/JobSearchForm';
+import Loading from '../../components/Loading/Loading';
 
 export default function SearchPage() {
-  const { handleSubmit, jobList } = useContext(JobContext);
+  const { handleSubmit, jobList, loading } = useContext(JobContext);
+
   return (
     <div>
       <JobSearchForm handleSubmit={handleSubmit} />
-      {jobList && <JobList />}
+      {loading ? <Loading /> : <JobList />}
     </div>
   );
 }

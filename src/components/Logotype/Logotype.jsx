@@ -1,22 +1,22 @@
 import React from 'react';
-import { Logo, LogotypeContainer } from '.';
+import * as S from './styled';
 
 export default function Logotype({ url, logoSrc }) {
   const renderLinkLogo = () => {
     return (
-      <LogotypeContainer>
+      <S.LogotypeContainer>
         <a href={url}>
-          <Logo alt="Company logo, link to company web page" src={logoSrc} />
+          <S.Logo alt="Company logo, link to company web page" src={logoSrc} />
         </a>
-      </LogotypeContainer>
+      </S.LogotypeContainer>
     );
   };
 
   const renderLogo = () => {
     return (
-      <LogotypeContainer>
-        <Logo alt="Company logo" src={logoSrc} />
-      </LogotypeContainer>
+      <S.LogotypeContainer>
+        <S.Logo alt="Company logo" src={logoSrc} />
+      </S.LogotypeContainer>
     );
   };
 

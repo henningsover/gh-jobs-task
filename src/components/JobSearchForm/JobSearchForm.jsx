@@ -6,7 +6,10 @@ export default function JobSearchForm({ handleSubmit }) {
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)}></input>
+        <input
+          value={searchInputValue.replace(/\s/g, '+')}
+          onChange={(e) => setSearchInputValue(e.target.value.replace(/\s/g, '+'))}
+        ></input>
         <button type="submit">Go</button>
       </form>
     </div>

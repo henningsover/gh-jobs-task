@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { JobContext } from '../../contexts/JobContextProvider';
 import { Link } from 'react-router-dom';
 import * as S from './styled';
 
 export default function ButtonStyledLink(props) {
   const { linkKind, internalLink, externalLink, title } = props;
+  const { setJob } = useContext(JobContext);
   const ButtonStyledLinkKind = {
     INTERNAL_PAGE: 0,
     EXTERNAL_PAGE: 1,
@@ -11,7 +13,7 @@ export default function ButtonStyledLink(props) {
 
   const renderInternalLink = () => {
     return (
-      <S.InternalLinkWrapper>
+      <S.InternalLinkWrapper onClick={() => setJob(null)}>
         <Link to={internalLink}>{title}</Link>
       </S.InternalLinkWrapper>
     );
