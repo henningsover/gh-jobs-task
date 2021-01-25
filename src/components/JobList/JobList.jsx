@@ -2,15 +2,13 @@ import React, { useContext, useEffect } from 'react';
 import { JobContext } from '../../contexts/JobContextProvider';
 import JobItem from '../JobItem/JobItem';
 
-export default function JobList() {
-  const { jobList } = useContext(JobContext);
-
+export default function JobList({ jobList }) {
   return (
     <div>
       {jobList &&
-        (jobList.length > 0 ? (
+        (Object.keys(jobList).length > 0 ? (
           jobList.map((job) => {
-            return <JobItem key={job.id} job={job} />;
+            return <JobItem key={job.id} job={job} type={0} />;
           })
         ) : (
           <p>No jobs found</p>

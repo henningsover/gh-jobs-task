@@ -34,8 +34,8 @@ export default function JobContextProvider({ children }) {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setJob(data);
-        console.log('finished loading job');
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -43,8 +43,8 @@ export default function JobContextProvider({ children }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (previousAPICalls[searchInputValue]) {
-      setJobList(previousAPICalls[searchInputValue]);
+    if (previousAPICalls[searchInputValue.toLowerCase()]) {
+      setJobList(previousAPICalls[searchInputValue.toLowerCase()]);
     } else {
       fetchJobList(searchInputValue);
     }
@@ -58,7 +58,8 @@ export default function JobContextProvider({ children }) {
   useEffect(() => {
     if (jobList && Object.keys(jobList).length > 0) {
       console.log('joblist effect');
-      if (!previousAPICalls[searchInputValue]) {
+      if (previousAPICalls[searchInputValue] === undefined) {
+        console.log('set to list');
         setPreviousAPICalls({ ...previousAPICalls, [`${searchInputValue.toLowerCase()}`]: jobList });
       }
     }
