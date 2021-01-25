@@ -4,7 +4,7 @@ import JobItem from '../JobItem/JobItem';
 
 export default function JobList({ jobList }) {
   return (
-    <div>
+    <ul>
       {jobList &&
         (Object.keys(jobList).length > 0 ? (
           jobList.map((job) => {
@@ -13,6 +13,6 @@ export default function JobList({ jobList }) {
         ) : (
           <p>No jobs found</p>
         ))}
-    </div>
+    </ul>
   );
 }

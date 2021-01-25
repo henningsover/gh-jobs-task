@@ -28,7 +28,7 @@ export const UnderTitle = styled.strong`
   color: gray;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.li`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid gray;

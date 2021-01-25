@@ -55,10 +55,13 @@ export default function JobItem({ job, type }) {
             <S.JobTitle>{job.title}</S.JobTitle>
             <S.UnderTitle>{job.type}</S.UnderTitle>
           </S.JobHeader>
-          <S.DescriptionContainer dangerouslySetInnerHTML={getDescription(job.description)} />
+          <S.DescriptionContainer
+            className="descriptionContainer"
+            dangerouslySetInnerHTML={getDescription(job.description)}
+          />
         </div>
         <S.RightColumn>
-          {job.company_logo && <Logotype url={job.company_url} logoSrc={job.company_logo} />}
+          {job.company_logo ? <Logotype url={job.company_url} logoSrc={job.company_logo} /> : <h2>{job.company}</h2>}
           <ButtonStyledLink internalLink={`/search/${job.id}`} title="Read more" />
         </S.RightColumn>
       </S.Wrapper>
