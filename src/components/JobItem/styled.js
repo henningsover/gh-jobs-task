@@ -41,7 +41,6 @@ export const JobHeader = styled.div`
 `;
 
 export const ApplyContainer = styled.div`
-  margin-top: 2em;
   max-width: 260px;
 `;
 
@@ -53,9 +52,31 @@ export const TitleRow = styled.div`
   max-width: 800px;
 `;
 
+export const LeftColumn = styled.div`
+  flex-grow: 1;
+`;
+
 export const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 1em;
   max-width: 260px;
+`;
+
+export const ApplyTitle = styled.h3`
+  margin-bottom: 1em;
+`;
+
+export const CompanyLink = styled.a`
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-top: 1em;
+  place-self: flex-end;
+  &:visited {
+    color: black;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
 `;

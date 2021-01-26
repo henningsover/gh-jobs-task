@@ -8,7 +8,7 @@ export default function ButtonStyledLink(props) {
   const { setJob } = useContext(JobContext);
 
   return (
-    <S.InternalLinkWrapper onClick={() => setJob(null)}>
+    <S.InternalLinkWrapper className="button-styled-link" onClick={() => setJob(null)}>
       <Link to={internalLink}>{title}</Link>
     </S.InternalLinkWrapper>
   );
