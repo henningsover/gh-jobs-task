@@ -3,8 +3,7 @@ import { JobContext } from '../../contexts/JobContextProvider';
 import { Link } from 'react-router-dom';
 import * as S from './styled';
 
-export default function ButtonStyledLink(props) {
-  const { internalLink, title } = props;
+export default function ButtonStyledLink({ internalLink, title }) {
   const { setJob } = useContext(JobContext);
 
   return (

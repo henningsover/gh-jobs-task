@@ -13,9 +13,3 @@ export const InternalLinkWrapper = styled.div`
     color: white;
   }
 `;
-
-export const ExternalLink = styled.div`
-  padding: 5px;
-  border: 1px solid black;
-  background-color: green;
-`;
