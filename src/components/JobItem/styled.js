@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const JobTitle = styled.h2``;
+export const JobTitle = styled.h2`
+  max-width: 400px;
+`;
 export const CreatedTime = styled.p`
   font-size: 14px;
   color: gray;
