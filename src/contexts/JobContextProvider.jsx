@@ -6,11 +6,11 @@ export const BASE_URL = 'https://us-central1-wands-2017.cloudfunctions.net/githu
 
 export default function JobContextProvider({ children }) {
   const [searchInputValue, setSearchInputValue] = useState('');
+  const [job, setJob] = useState(null);
   const [jobList, setJobList] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [previousJobListResults, setPreviousJobListResults] = useState({});
   const [previousJobResults, setPreviousJobResults] = useState({});
-  const [job, setJob] = useState(null);
+  const [previousJobListResults, setPreviousJobListResults] = useState({});
 
   const fetchJobList = (searchValue) => {
     const url = `${BASE_URL}description=${searchValue}`;
