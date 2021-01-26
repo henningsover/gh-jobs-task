@@ -5,11 +5,11 @@ import { CenteredContainer } from '../../theme/layout';
 import JobItem from '../../components/JobItem/JobItem';
 
 export default function DetailsPage(props) {
-  const { loading, job, fetchJob } = useContext(JobContext);
+  const { loading, job, getJob } = useContext(JobContext);
   const id = props.match.params.id;
 
   useEffect(() => {
-    fetchJob(id);
+    getJob(id);
   }, []);
 
   return (

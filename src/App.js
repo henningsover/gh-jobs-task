@@ -7,7 +7,7 @@ function App() {
   return (
     <Switch>
       <Route path="/search/:id" component={DetailsPage} />
-      <Route path="/search" component={SearchPage} />
+      <Route path="/" component={SearchPage} />
     </Switch>
   );
 }
