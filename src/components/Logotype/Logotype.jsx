@@ -4,7 +4,7 @@ import * as S from './styled';
 export default function Logotype({ url, logoSrc }) {
   const renderLinkLogo = () => {
     return (
-      <S.LogotypeContainer>
+      <S.LogotypeContainer className="link-logo">
         <a href={url}>
           <S.Logo alt="Company logo, link to company web page" src={logoSrc} />
         </a>
@@ -14,7 +14,7 @@ export default function Logotype({ url, logoSrc }) {
 
   const renderLogo = () => {
     return (
-      <S.LogotypeContainer>
+      <S.LogotypeContainer className="logo">
         <S.Logo alt="Company logo" src={logoSrc} />
       </S.LogotypeContainer>
     );
