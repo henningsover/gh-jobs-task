@@ -8,7 +8,6 @@ export default function JobSearchForm({ handleSubmit }) {
     <S.Form onSubmit={(e) => handleSubmit(e)}>
       <S.FormRow>
         <S.JobInput
-          name="jobSearch"
           value={searchInputValue.replace(/\s/g, '+')}
           onChange={(e) => setSearchInputValue(e.target.value.replace(/\s/g, '+'))}
         ></S.JobInput>
